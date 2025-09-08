@@ -42,4 +42,6 @@ public class Cheval {
     public void setRace(Race race) {
         this.race = race;
     }
+    
+    
 }
