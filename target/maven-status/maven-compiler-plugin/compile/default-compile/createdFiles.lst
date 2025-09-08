@@ -1,11 +1,17 @@
+test\TestCategVente.class
+model\Lieu.class
 model\Cheval.class
 sio\equidaweb\resources\JakartaEE10Resource.class
 database\DaoCheval.class
+model\CategVente.class
 database\DaoRace.class
 test\TestCheval.class
+model\Lot.class
 test\TestConnexionBdd.class
+test\TestVente.class
 database\Connexionbdd.class
 model\Race.class
+model\Vente.class
 test\TestRace.class
 database\ConnexionServlet.class
 servlet\ChevalServlet.class

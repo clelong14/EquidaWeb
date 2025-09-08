@@ -15,6 +15,7 @@ public class Vente {
     private String dateDebutVente;
     
     private CategVente categVente;
+    private Lieu lieu;
 
     public Vente() {
         
@@ -40,6 +41,14 @@ public class Vente {
         this.nom = nom;
         this.dateDebutVente = dateDebutVente;
         this.categVente = categVente;
+    }
+
+    public Vente(int id, String nom, String dateDebutVente, CategVente categVente, Lieu lieu) {
+        this.id = id;
+        this.nom = nom;
+        this.dateDebutVente = dateDebutVente;
+        this.categVente = categVente;
+        this.lieu = lieu;
     }
 
     public int getId() {
@@ -72,5 +81,13 @@ public class Vente {
 
     public void setCategVente(CategVente categVente) {
         this.categVente = categVente;
+    }
+
+    public Lieu getLieu() {
+        return lieu;
+    }
+
+    public void setLieu(Lieu lieu) {
+        this.lieu = lieu;
     }
 }

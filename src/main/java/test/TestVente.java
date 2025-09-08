@@ -20,13 +20,13 @@ public class TestVente {
         // création d'une instance de Vente nommée v
         Vente v = new Vente();
         v.setId(2);
-        v.setNom("Jument");
+        v.setNom("Un poneyyyy");
         v.setDateDebutVente("2024-05-25");
 
         // création d'une instance de CategVente nommée c
         CategVente c = new CategVente();
         c.setCode(1);
-        c.setLibelle("pur-sang");
+        c.setLibelle("Jument");
         
         // création d'une instance de Lieu nommée l
         Lieu l = new Lieu();
@@ -37,11 +37,11 @@ public class TestVente {
 
         //affectation de  la CategVente au Vente grâce à la relation ManyToOne
         v.setCategVente(c);
+        v.setLieu(l);
 
         // Affichage des informations dans la console
         //voir notamment du nom de la catgegorie de vente
-        System.out.println("Cheval : " + v.getId() + " " + v.getNom() + " " + v.getDateDebutVente());
-        System.out.println("Cheval : " + v.getCategVente().getCode() + " " + v.getCategVente().getLibelle());
-        
+        System.out.println("Vente : " + " " + v.getNom() + " a vendre, date de debut de la vente prevu le " + v.getDateDebutVente()+ " dans la categorie " + 
+                v.getCategVente().getLibelle() + " situee dans la ville de " + v.getLieu().getVille() + " dans le box numero " + v.getLieu().getNbBoxes() + ". " + v.getLieu().getCommentaires());
     }
 }
