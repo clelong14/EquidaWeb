@@ -4,6 +4,8 @@
  */
 package model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author sio2
@@ -15,7 +17,7 @@ public class Lieu {
     private int nbBoxes;
     private String commentaires;
     
-    private Vente vente;
+    private ArrayList<Vente> lesVentes ;
 
     public Lieu() {
     }
@@ -42,12 +44,12 @@ public class Lieu {
         this.commentaires = commentaires;
     }
 
-    public Lieu(int id, String ville, int nbBoxes, String commentaires, Vente vente) {
+    public Lieu(int id, String ville, int nbBoxes, String commentaires, ArrayList<Vente> lesVentes) {
         this.id = id;
         this.ville = ville;
         this.nbBoxes = nbBoxes;
         this.commentaires = commentaires;
-        this.vente = vente;
+        this.lesVentes = lesVentes;
     }
 
     public int getId() {
@@ -81,13 +83,20 @@ public class Lieu {
     public void setCommentaires(String commentaires) {
         this.commentaires = commentaires;
     }
-
-    public Vente getVente() {
-        return vente;
+    
+    public ArrayList<Vente> getLesVentes() {
+        return lesVentes;
     }
 
-    public void setVente(Vente vente) {
-        this.vente = vente;
+    public void setLesVentes(ArrayList<Vente> lesVentes) {
+        this.lesVentes = lesVentes;
+    }
+    
+    public void addVente(Vente uneVente){
+        if (lesVentes ==null ){
+            lesVentes = new ArrayList<Vente>();
+        }
+        lesVentes.add(uneVente);
     }
     
 }

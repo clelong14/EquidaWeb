@@ -10,7 +10,9 @@ package model;
  */
 public class Lot {
     private int id;
-    private String prixDepart;
+    private int prixDepart;
+    
+    private Vente vente;
     
     public Lot() {
     }
@@ -19,9 +21,15 @@ public class Lot {
         this.id = id;
     }
 
-    public Lot(int id, String prixDepart) {
+    public Lot(int id, int prixDepart) {
         this.id = id;
         this.prixDepart = prixDepart;
+    }
+
+    public Lot(int id, int prixDepart, Vente vente) {
+        this.id = id;
+        this.prixDepart = prixDepart;
+        this.vente = vente;
     }
 
     public int getId() {
@@ -32,11 +40,19 @@ public class Lot {
         this.id = id;
     }
 
-    public String getPrixDepart() {
+    public int getPrixDepart() {
         return prixDepart;
     }
 
-    public void setPrixDepart(String prixDepart) {
+    public void setPrixDepart(int prixDepart) {
         this.prixDepart = prixDepart;
+    }
+
+    public Vente getVente() {
+        return vente;
+    }
+
+    public void setVente(Vente vente) {
+        this.vente = vente;
     }
 }

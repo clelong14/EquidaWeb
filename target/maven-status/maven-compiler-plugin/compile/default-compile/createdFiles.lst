@@ -7,9 +7,11 @@ model\CategVente.class
 database\DaoRace.class
 test\TestCheval.class
 model\Lot.class
+test\TestLieu.class
 test\TestConnexionBdd.class
 test\TestVente.class
 database\Connexionbdd.class
+test\TestLot.class
 model\Race.class
 model\Vente.class
 test\TestRace.class
