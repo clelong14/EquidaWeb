@@ -4,8 +4,10 @@
  */
 package test;
 
+import java.time.LocalDate;
 import model.CategVente;
 import model.Lieu;
+import model.Lot;
 import model.Vente;
 //import java.time.LocalDate
 
@@ -21,7 +23,7 @@ public class TestVente {
         Vente v = new Vente();
         v.setId(2);
         v.setNom("Un poneyyyy");
-        v.setDateDebutVente("2024-05-25");
+        v.setDateDebutVente(LocalDate.of(2024, 5, 25));
 
         // création d'une instance de CategVente nommée c
         CategVente c = new CategVente();
@@ -34,7 +36,13 @@ public class TestVente {
         l.setVille("Cherbourg");
         l.setNbBoxes(5);
         l.setCommentaires("Rawru");
-
+        
+        // création d'une instance de Lot nommée l1
+        Lot l1 = new Lot();
+        l1.setId(1);
+        l1.setPrixDepart(15000);
+        v.addLot(l1);
+        
         //affectation de  la CategVente au Vente grâce à la relation ManyToOne
         v.setCategVente(c);
         v.setLieu(l);
@@ -43,5 +51,11 @@ public class TestVente {
         //voir notamment du nom de la catgegorie de vente
         System.out.println("Vente : " + " " + v.getNom() + " a vendre, date de debut de la vente prevu le " + v.getDateDebutVente()+ " dans la categorie " + 
                 v.getCategVente().getLibelle() + " situee dans la ville de " + v.getLieu().getVille() + " dans le box numero " + v.getLieu().getNbBoxes() + ". " + v.getLieu().getCommentaires());
+        
+        System.out.println("Liste des lots de la vente : ");
+		// Affichage des informations sur lots liées à la vente
+        for (Lot lot : v.getLesLots()) {
+            System.out.println("Lot numéro : " + lot.getId() + " est de " + lot.getPrixDepart());
+        }
     }
 }

@@ -4,6 +4,9 @@
  */
 package model;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
+
 /**
  *
  * @author sio2
@@ -12,10 +15,12 @@ public class Vente {
     
     private int id;
     private String nom;
-    private String dateDebutVente;
+    private LocalDate dateDebutVente;
     
     private CategVente categVente;
     private Lieu lieu;
+    
+    private ArrayList<Lot> lesLots;
 
     public Vente() {
         
@@ -30,20 +35,20 @@ public class Vente {
         this.nom = nom;
     }
 
-    public Vente(int id, String nom, String dateDebutVente) {
+    public Vente(int id, String nom, LocalDate dateDebutVente) {
         this.id = id;
         this.nom = nom;
         this.dateDebutVente = dateDebutVente;
     }
 
-    public Vente(int id, String nom, String dateDebutVente, CategVente categVente) {
+    public Vente(int id, String nom, LocalDate dateDebutVente, CategVente categVente) {
         this.id = id;
         this.nom = nom;
         this.dateDebutVente = dateDebutVente;
         this.categVente = categVente;
     }
 
-    public Vente(int id, String nom, String dateDebutVente, CategVente categVente, Lieu lieu) {
+    public Vente(int id, String nom, LocalDate dateDebutVente, CategVente categVente, Lieu lieu) {
         this.id = id;
         this.nom = nom;
         this.dateDebutVente = dateDebutVente;
@@ -51,6 +56,15 @@ public class Vente {
         this.lieu = lieu;
     }
 
+    public Vente(int id, String nom, LocalDate dateDebutVente, CategVente categVente, Lieu lieu, ArrayList<Lot> lesLots) {
+        this.id = id;
+        this.nom = nom;
+        this.dateDebutVente = dateDebutVente;
+        this.categVente = categVente;
+        this.lieu = lieu;
+        this.lesLots = lesLots;
+    }
+    
     public int getId() {
         return id;
     }
@@ -67,11 +81,11 @@ public class Vente {
         this.nom = nom;
     }
 
-    public String getDateDebutVente() {
+    public LocalDate getDateDebutVente() {
         return dateDebutVente;
     }
 
-    public void setDateDebutVente(String dateDebutVente) {
+    public void setDateDebutVente(LocalDate dateDebutVente) {
         this.dateDebutVente = dateDebutVente;
     }
 
@@ -90,4 +104,20 @@ public class Vente {
     public void setLieu(Lieu lieu) {
         this.lieu = lieu;
     }
+
+    public ArrayList<Lot> getLesLots() {
+        return lesLots;
+    }
+
+    public void setLesLots(ArrayList<Lot> lesLots) {
+        this.lesLots = lesLots;
+    }
+    
+    public void addLot(Lot unLot){
+        if (lesLots == null) {
+        lesLots = new ArrayList<>();
+            }
+        lesLots.add(unLot);
+    }
+    
 }
