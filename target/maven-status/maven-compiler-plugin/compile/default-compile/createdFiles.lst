@@ -4,10 +4,12 @@ model\Cheval.class
 sio\equidaweb\resources\JakartaEE10Resource.class
 database\DaoCheval.class
 model\CategVente.class
+model\Robe.class
 database\DaoRace.class
 test\TestCheval.class
 model\Lot.class
 test\TestLieu.class
+test\TestRobe.class
 test\TestConnexionBdd.class
 test\TestVente.class
 database\Connexionbdd.class
