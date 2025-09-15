@@ -48,7 +48,7 @@ public class TestVente {
         v.setLieu(l);
 
         // Affichage des informations dans la console
-        //voir notamment du nom de la catgegorie de vente
+        //voir notamment du nom de la catégorie de vente
         System.out.println("Vente : " + " " + v.getNom() + " a vendre, date de debut de la vente prevu le " + v.getDateDebutVente()+ " dans la categorie " + 
                 v.getCategVente().getLibelle() + " situee dans la ville de " + v.getLieu().getVille() + " dans le box numero " + v.getLieu().getNbBoxes() + ". " + v.getLieu().getCommentaires());
         
