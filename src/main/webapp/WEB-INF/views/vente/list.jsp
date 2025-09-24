@@ -56,7 +56,7 @@
                         <tr>
                             <th>id</th>
                             <th>nom</th>
-                            <th>lieu</th>
+                            <th>dateDebutVente</th>
                         </tr>
                     </thead>
                     <tbody>
