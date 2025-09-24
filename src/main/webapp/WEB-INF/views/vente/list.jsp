@@ -56,6 +56,7 @@
                         <tr>
                             <th>id</th>
                             <th>nom</th>
+                            <th>lieu</th>
                         </tr>
                     </thead>
                     <tbody>
