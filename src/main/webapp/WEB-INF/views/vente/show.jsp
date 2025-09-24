@@ -75,9 +75,7 @@
 
                             <div class="row detail-row">
                                 <div class="col-sm-3 detail-label">Date de début de la vente</div>
-                                <div class="col-sm-9 detail-value">
-                                    <%= uneVente.getDateDebutVente() != null ? uneVente.getDateDebutVente() : "Non renseignée" %>
-                                </div>
+                                <div class="col-sm-9 detail-value"> <%= uneVente.getDateDebutVente() != null ? uneVente.getDateDebutVente() : "Non renseignée" %></div>
                             </div>
 
                             <div class="row detail-row">
