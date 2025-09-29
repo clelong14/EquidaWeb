@@ -47,6 +47,9 @@
         <div class="container special">
             <div class="header-actions">
                 <h2 class="h2">Liste des ventes</h2>
+                <a href="<%= request.getContextPath() %>/cheval-servlet/list" class="btn btn-primary">
+                    <span class="glyphicon glyphicon-chevron-left"></span> Retourner à la liste des chevaux
+                </a>
             </div>
             
             <div class="table-responsive">

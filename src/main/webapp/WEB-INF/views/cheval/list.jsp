@@ -44,6 +44,9 @@
                 <a href="<%= request.getContextPath() %>/cheval-servlet/add" class="btn btn-primary">
                     <span class="glyphicon glyphicon-plus"></span> Ajouter un cheval
                 </a>
+                <a href="<%= request.getContextPath() %>/vente-servlet/list" class="btn btn-primary">
+                    <span class="glyphicon glyphicon-chevron-right"></span> Vente des chevaux
+                </a>
             </div>
             
             <div class="table-responsive">
