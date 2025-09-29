@@ -9,7 +9,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import model.Cheval;
 import model.Lieu;
+import model.Lot;
 import model.Vente;
 
 /**
@@ -64,10 +66,14 @@ public class DaoVente {
         Vente vente = null;
         try {
             requeteSql = cnx.prepareStatement(
-                "SELECT v.id as v_id, v.nom as v_nom, " +
-                "l.id as l_id, l.ville as l_ville " +
+                "SELECT v.id AS v_id, v.nom AS v_nom, v.dateDebutVente AS v_dateDebutVente, " +
+                "lieu.id AS lieu_id, lieu.ville AS lieu_ville, " +
+                "l.id AS l_id, l.prixDepart AS l_prixDepart, " +
+                "c.id AS cheval_id, c.nom AS cheval_nom " +
                 "FROM vente v " +
-                "INNER JOIN lieu l ON v.lieu_id = l.id " +
+                "INNER JOIN lieu lieu ON v.lieu_id = lieu.id " +
+                "INNER JOIN lot l ON l.vente_id = v.id " +
+                "INNER JOIN cheval c ON c.lot_id = l.id " +
                 "WHERE v.id = ?"
             );
             requeteSql.setInt(1, idVente);
@@ -76,10 +82,19 @@ public class DaoVente {
                 vente = new Vente();
                 vente.setId(resultatRequete.getInt("v_id"));
                 vente.setNom(resultatRequete.getString("v_nom"));
+                java.sql.Date sqlDate = resultatRequete.getDate("v_dateDebutVente");
+                vente.setDateDebutVente(sqlDate != null ? sqlDate.toLocalDate() : null);
+                
                 Lieu lieu = new Lieu();
-                lieu.setId(resultatRequete.getInt("l_id"));
-                lieu.setVille(resultatRequete.getString("l_ville"));
+                lieu.setId(resultatRequete.getInt("lieu_id"));
+                lieu.setVille(resultatRequete.getString("lieu_ville"));
                 vente.setLieu(lieu);
+                
+                Lot lot = new Lot();
+                lot.setId(resultatRequete.getInt("l_id"));
+                lot.setPrixDepart(resultatRequete.getInt("l_prixDepart"));
+                vente.getLesLots();
+                
             }
         } catch (SQLException e) {
             e.printStackTrace();

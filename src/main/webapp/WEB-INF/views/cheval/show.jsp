@@ -54,6 +54,7 @@
                         <% 
                             Cheval leCheval = (Cheval)request.getAttribute("pLeCheval");
                             if(leCheval != null) {
+                                java.time.format.DateTimeFormatter formatter = java.time.format.DateTimeFormatter.ofPattern("dd/MM/yyyy");
                         %>
                             <h2>Détails du cheval : <%= leCheval.getNom() %></h2>
                             
@@ -70,8 +71,25 @@
                             <div class="row detail-row">
                                 <div class="col-sm-3 detail-label">Date de naissance</div>
                                 <div class="col-sm-9 detail-value">
-                                    <%= leCheval.getDateNaissance() != null ? leCheval.getDateNaissance() : "Non renseignée" %>
+                                    <%= leCheval.getDateNaissance() != null ? leCheval.getDateNaissance().format(formatter) : "Non renseignée" %>
                                 </div>
+                            </div>
+                                
+                            <div class="row detail-row">
+                                <div class="col-sm-3 detail-label">Code SIRE</div>
+                                <div class="col-sm-9 detail-value">
+                                    <%= leCheval.getCodeSire() != null ? leCheval.getCodeSire() : "Non renseignée" %>
+                                </div>
+                            </div>
+                                
+                            <div class="row detail-row">
+                                <div class="col-sm-3 detail-label">Taille</div>
+                                <div class="col-sm-9 detail-value"><%= leCheval.getTaille() %></div>
+                            </div>
+                                
+                            <div class="row detail-row">
+                                <div class="col-sm-3 detail-label">Poids</div>
+                                <div class="col-sm-9 detail-value"><%= leCheval.getPoids() %></div>
                             </div>
 
                             <div class="row detail-row">

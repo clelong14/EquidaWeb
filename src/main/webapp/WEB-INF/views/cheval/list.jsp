@@ -54,9 +54,10 @@
                 <table class="table table-striped table-sm">
                     <thead>
                         <tr>
-                            <th>id</th>
-                            <th>nom</th>
-                            <th>pays</th>
+                            <th>Id</th>
+                            <th>Nom</th>
+                            <th>Pays</th>
+                            
                         </tr>
                     </thead>
                     <tbody>

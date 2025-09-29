@@ -4,6 +4,9 @@
     Author     : sio2
 --%>
 
+<%@page import="model.Lot"%>
+<%@page import="model.Cheval"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="model.Vente" %>
 
@@ -60,8 +63,9 @@
                         <% 
                             Vente uneVente = (Vente)request.getAttribute("pUneVente");
                             if(uneVente != null) {
+                                java.time.format.DateTimeFormatter formatter = java.time.format.DateTimeFormatter.ofPattern("dd/MM/yyyy");
                         %>
-                            <h2>Détails du cheval : <%= uneVente.getNom() %></h2>
+                            <h2>Détails de la vente : <%= uneVente.getNom() %></h2>
                             
                             <div class="row detail-row">
                                 <div class="col-sm-3 detail-label">Identifiant</div>
@@ -75,7 +79,7 @@
 
                             <div class="row detail-row">
                                 <div class="col-sm-3 detail-label">Date de début de la vente</div>
-                                <div class="col-sm-9 detail-value"> <%= uneVente.getDateDebutVente() != null ? uneVente.getDateDebutVente() : "Non renseignée" %></div>
+                                <div class="col-sm-9 detail-value"> <%= uneVente.getDateDebutVente() != null ? uneVente.getDateDebutVente().format(formatter) : "Non renseignée" %></div>
                             </div>
 
                             <div class="row detail-row">
@@ -84,7 +88,7 @@
                                     <%= uneVente.getLieu() != null ? uneVente.getLieu().getVille() : "Non renseignée" %>
                                 </div>
                             </div>
-
+                                
                             <div class="row" style="margin-top: 30px;">
                                 <div class="col-sm-offset-3 col-sm-9">
                                     <a href="<%= request.getContextPath() %>/vente-servlet/list" class="btn btn-default">
