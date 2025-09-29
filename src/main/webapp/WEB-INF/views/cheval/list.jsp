@@ -31,7 +31,7 @@
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
-                    <a href='../ServletCheval/list' class="navbar-brand">
+                    <a href='../cheval-servlet/list' class="navbar-brand">
                         Système de gestion des ventes aux enchères de chevaux
                     </a>
                 </div>

@@ -50,7 +50,7 @@ public class DaoVente {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("La requête de getLesChevaux a généré une exception SQL");
+            System.out.println("La requête de getLesVentes a généré une exception SQL");
         }
         return lesVentes;
     }

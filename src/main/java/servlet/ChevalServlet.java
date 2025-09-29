@@ -51,11 +51,11 @@ public class ChevalServlet extends HttpServlet {
                     request.setAttribute("pLeCheval", leCheval);
                     this.getServletContext().getRequestDispatcher("/WEB-INF/views/cheval/show.jsp").forward(request, response);
                 } else {
-                    response.sendRedirect(request.getContextPath() + "/cheval-servlet/lister");
+                    response.sendRedirect(request.getContextPath() + "/cheval-servlet/list");
                 }
             } catch (NumberFormatException e) {
                 System.out.println("Erreur : l'id du cheval n'est pas un nombre valide");
-                response.sendRedirect(request.getContextPath() + "/cheval-servlet/lister");
+                response.sendRedirect(request.getContextPath() + "/cheval-servlet/list");
             }
 
         }
