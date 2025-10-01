@@ -12,9 +12,10 @@ import java.util.ArrayList;
  */
 public class Lot {
     private int id;
-    private int prixDepart;
+    private float prixDepart;
     
     private Vente vente;
+    private Cheval cheval;
     
     public Lot() {
     }
@@ -23,17 +24,23 @@ public class Lot {
         this.id = id;
     }
 
-    public Lot(int id, int prixDepart) {
+    public Lot(int id, float prixDepart) {
         this.id = id;
         this.prixDepart = prixDepart;
     }
 
-    public Lot(int id, int prixDepart, Vente vente) {
+    public Lot(int id, float prixDepart, Vente vente) {
         this.id = id;
         this.prixDepart = prixDepart;
         this.vente = vente;
     }
 
+    public Lot(int id, float prixDepart, Vente vente, Cheval cheval) {
+        this.id = id;
+        this.prixDepart = prixDepart;
+        this.vente = vente;
+        this.cheval = cheval;
+    }
     public int getId() {
         return id;
     }
@@ -42,11 +49,11 @@ public class Lot {
         this.id = id;
     }
 
-    public int getPrixDepart() {
+    public float getPrixDepart() {
         return prixDepart;
     }
 
-    public void setPrixDepart(int prixDepart) {
+    public void setPrixDepart(float prixDepart) {
         this.prixDepart = prixDepart;
     }
 
@@ -56,5 +63,13 @@ public class Lot {
 
     public void setVente(Vente vente) {
         this.vente = vente;
+    }
+
+    public Cheval getCheval() {
+        return cheval;
+    }
+
+    public void setCheval(Cheval cheval) {
+        this.cheval = cheval;
     }
 }

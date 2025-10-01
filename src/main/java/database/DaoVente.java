@@ -42,6 +42,7 @@ public class DaoVente {
                 Vente v = new Vente();
                 v.setId(resultatRequete.getInt("v_id"));
                 v.setNom(resultatRequete.getString("v_nom"));
+                
                 Lieu l = new Lieu();
                 l.setId(resultatRequete.getInt("l_id"));
                 l.setVille(resultatRequete.getString("l_ville"));
@@ -72,8 +73,8 @@ public class DaoVente {
                 "c.id AS cheval_id, c.nom AS cheval_nom " +
                 "FROM vente v " +
                 "INNER JOIN lieu lieu ON v.lieu_id = lieu.id " +
-                "INNER JOIN lot l ON l.vente_id = v.id " +
-                "INNER JOIN cheval c ON c.lot_id = l.id " +
+                "LEFT JOIN lot l ON l.vente_id = v.id " +
+                "INNER JOIN cheval c ON l.cheval_id = c.id " +
                 "WHERE v.id = ?"
             );
             requeteSql.setInt(1, idVente);
@@ -92,7 +93,7 @@ public class DaoVente {
                 
                 Lot lot = new Lot();
                 lot.setId(resultatRequete.getInt("l_id"));
-                lot.setPrixDepart(resultatRequete.getInt("l_prixDepart"));
+                lot.setPrixDepart(resultatRequete.getFloat("l_prixDepart"));
                 vente.getLesLots();
                 
             }
@@ -103,4 +104,37 @@ public class DaoVente {
         return vente;
     }
     
+    public static ArrayList<Lot> getLesLots(Connection cnx, int idVente) {
+             ArrayList<Lot> lesLots = new ArrayList<>();
+             String sql = "SELECT l.id AS l_id, l.prixDepart AS l_prixDepart, " +
+                          "c.id AS c_id, c.nom AS c_nom " +
+                          "FROM lot l " +
+                          "INNER JOIN cheval c ON l.cheval_id = c.id " +
+                          "WHERE l.vente_id = ? ";
+
+             try (PreparedStatement ps = cnx.prepareStatement(sql)) {
+                 ps.setInt(1, idVente);
+                 try (ResultSet resultatRequete = ps.executeQuery()) {
+                     while (resultatRequete.next()) {
+                         // Création du cheval
+                         Cheval c = new Cheval();
+                         c.setId(resultatRequete.getInt("c_id"));
+                         c.setNom(resultatRequete.getString("c_nom"));
+
+                         // Création du lot
+                         Lot l = new Lot();
+                         l.setId(resultatRequete.getInt("l_id"));
+                         l.setPrixDepart(resultatRequete.getInt("l_prixDepart"));
+                         l.setCheval(c);
+                         
+                         lesLots.add(l);
+                     }
+                 }
+             } catch (SQLException e) {
+                 e.printStackTrace();
+                 System.out.println("La requête getLesLots a échoué");
+             }
+             return lesLots;
+         }
+
 }

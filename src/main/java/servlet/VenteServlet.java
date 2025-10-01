@@ -18,6 +18,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import model.Lot;
 import model.Vente;
 
 /**
@@ -55,7 +56,9 @@ public class VenteServlet extends HttpServlet {
                 Vente uneVente = DaoVente.getUneVente(cnx, idVente);
 
                 if (uneVente != null) {
+                    ArrayList<Lot> lesLots = DaoVente.getLesLots(cnx, idVente);
                     request.setAttribute("pUneVente", uneVente);
+                    request.setAttribute("plesLots", lesLots);
                     this.getServletContext().getRequestDispatcher("/WEB-INF/views/vente/show.jsp").forward(request, response);
                 } else {
                     response.sendRedirect(request.getContextPath() + "/vente-servlet/list");
