@@ -11,6 +11,8 @@ public class Cheval {
     private String codeSire;
     private int taille;
     private float poids;
+    private Cheval pere;
+    private Cheval mere;
     
     private Race race;
 
@@ -48,13 +50,36 @@ public class Cheval {
         this.poids = poids;
     }
 
-    public Cheval(int id, String nom, LocalDate dateNaissance, String codeSire, int taille, float poids, Race race) {
+    public Cheval(int id, String nom, LocalDate dateNaissance, String codeSire, int taille, float poids, Cheval pere) {
         this.id = id;
         this.nom = nom;
         this.dateNaissance = dateNaissance;
         this.codeSire = codeSire;
         this.taille = taille;
         this.poids = poids;
+        this.pere = pere;
+    }
+
+    public Cheval(int id, String nom, LocalDate dateNaissance, String codeSire, int taille, float poids, Cheval pere, Cheval mere) {
+        this.id = id;
+        this.nom = nom;
+        this.dateNaissance = dateNaissance;
+        this.codeSire = codeSire;
+        this.taille = taille;
+        this.poids = poids;
+        this.pere = pere;
+        this.mere = mere;
+    }
+
+    public Cheval(int id, String nom, LocalDate dateNaissance, String codeSire, int taille, float poids, Cheval pere, Cheval mere, Race race) {
+        this.id = id;
+        this.nom = nom;
+        this.dateNaissance = dateNaissance;
+        this.codeSire = codeSire;
+        this.taille = taille;
+        this.poids = poids;
+        this.pere = pere;
+        this.mere = mere;
         this.race = race;
     }
 
@@ -110,6 +135,22 @@ public class Cheval {
 
     public void setPoids(float poids) {
         this.poids = poids;
+    }
+
+    public Cheval getPere() {
+        return pere;
+    }
+
+    public void setPere(Cheval pere) {
+        this.pere = pere;
+    }
+
+    public Cheval getMere() {
+        return mere;
+    }
+
+    public void setMere(Cheval mere) {
+        this.mere = mere;
     }
     
     @Override
