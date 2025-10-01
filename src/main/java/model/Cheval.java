@@ -15,6 +15,7 @@ public class Cheval {
     private Cheval mere;
     
     private Race race;
+    private ArrayList<ChevalCourse> lesCoursesCheval;
 
     public Cheval() {
     }
@@ -81,6 +82,19 @@ public class Cheval {
         this.pere = pere;
         this.mere = mere;
         this.race = race;
+    }
+
+    public Cheval(int id, String nom, LocalDate dateNaissance, String codeSire, int taille, float poids, Cheval pere, Cheval mere, Race race, ArrayList<ChevalCourse> lesCoursesCheval) {
+        this.id = id;
+        this.nom = nom;
+        this.dateNaissance = dateNaissance;
+        this.codeSire = codeSire;
+        this.taille = taille;
+        this.poids = poids;
+        this.pere = pere;
+        this.mere = mere;
+        this.race = race;
+        this.lesCoursesCheval = lesCoursesCheval;
     }
 
     public int getId() {
@@ -151,6 +165,14 @@ public class Cheval {
 
     public void setMere(Cheval mere) {
         this.mere = mere;
+    }
+
+    public ArrayList<ChevalCourse> getLesCoursesCheval() {
+        return lesCoursesCheval;
+    }
+
+    public void setLesCoursesCheval(ArrayList<ChevalCourse> lesCoursesCheval) {
+        this.lesCoursesCheval = lesCoursesCheval;
     }
     
     @Override

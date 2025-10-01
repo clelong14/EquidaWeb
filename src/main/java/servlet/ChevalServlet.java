@@ -8,6 +8,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import database.DaoCheval;
+import database.DaoChevalCourse;
 import database.DaoRace;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
@@ -16,6 +17,7 @@ import jakarta.servlet.annotation.*;
 import model.Cheval;
 import model.Race;
 import java.time.LocalDate;
+import model.ChevalCourse;
 
 @WebServlet(name = "chevalServlet", value = "/cheval-servlet/*")
 public class ChevalServlet extends HttpServlet {
@@ -49,6 +51,8 @@ public class ChevalServlet extends HttpServlet {
 
                 if (leCheval != null) {
                     request.setAttribute("pLeCheval", leCheval);
+                    ArrayList<ChevalCourse> lesCoursesCheval = DaoChevalCourse.getLesCoursesByCheval(cnx, idCheval);
+                    request.setAttribute("lesCoursesCheval", lesCoursesCheval);
                     this.getServletContext().getRequestDispatcher("/WEB-INF/views/cheval/show.jsp").forward(request, response);
                 } else {
                     response.sendRedirect(request.getContextPath() + "/cheval-servlet/list");

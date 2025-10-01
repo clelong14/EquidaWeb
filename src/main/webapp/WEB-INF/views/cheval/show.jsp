@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="model.Cheval" %>
+<%@ page import="model.ChevalCourse" %>
 
 <!DOCTYPE html>
 <html>
@@ -112,7 +113,7 @@
                                     <%= leCheval.getMere() != null ? leCheval.getMere().getNom() : "Non renseignée" %>
                                 </div>
                             </div>
-
+                                
                             <div class="row" style="margin-top: 30px;">
                                 <div class="col-sm-offset-3 col-sm-9">
                                     <a href="<%= request.getContextPath() %>/cheval-servlet/list" class="btn btn-default">
